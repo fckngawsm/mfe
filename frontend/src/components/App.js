@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
+import InfoTooltip from "../../microfrontend/libs/shared-ui/components/InfoTooltip.js";
 import PopupWithForm from "../../microfrontend/shared/components/PopupWithForm.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import api from "../utils/api";
@@ -10,7 +11,6 @@ import EditProfilePopup from "./EditProfilePopup";
 import Footer from "./Footer";
 import Header from "./Header";
 import ImagePopup from "./ImagePopup";
-import InfoTooltip from "./InfoTooltip";
 import Login from "./Login";
 import Main from "./Main";
 import ProtectedRoute from "./ProtectedRoute";
