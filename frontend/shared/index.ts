@@ -1,3 +1,5 @@
+export { InfoTooltip } from "./components/InfoTooltip";
 export { PopupWithForm } from "./components/PopupWithForm";
-export { Card } from "./types/Card";
-export { User } from "./types/User";
+export { UserContext } from "./context/CurrentUserContext";
+export type { Card } from "./types/Card";
+export type { User } from "./types/User";

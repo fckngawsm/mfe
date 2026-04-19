@@ -8,7 +8,7 @@ interface InfoTooltipProps {
   status: string;
 }
 
-function InfoTooltip({ isOpen, onClose, status }: InfoTooltipProps) {
+export function InfoTooltip({ isOpen, onClose, status }: InfoTooltipProps) {
   const icon = status === "success" ? SuccessIcon : ErrorIcon;
   const text =
     status === "success"
@@ -32,5 +32,3 @@ function InfoTooltip({ isOpen, onClose, status }: InfoTooltipProps) {
     </div>
   );
 }
-
-export default InfoTooltip;

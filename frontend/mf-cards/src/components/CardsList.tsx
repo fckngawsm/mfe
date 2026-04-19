@@ -1,16 +1,16 @@
-import { useUser } from "host/CurrentUserContext";
+import { Card as CardI } from "@mf/shared";
+import { useUser } from "@mf/shared/context/CurrentUserContext";
 import { useEffect, useState } from "react";
-import { Card } from "../types/Card";
 import { getCardsApiInstance } from "../utils/api/api";
 import { CardItem } from "./CardItem";
 
 export const CardsList = () => {
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<CardI[]>([]);
   const api = getCardsApiInstance();
-  const currentUser = useUser();
+  const { user: currentUser } = useUser();
 
-  function handleCardLike(card: Card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  function handleCardLike(card: CardI) {
+    const isLiked = card.likes.some((i) => i._id === currentUser?._id);
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
@@ -21,7 +21,7 @@ export const CardsList = () => {
       .catch((err) => console.log(err));
   }
 
-  function handleCardDelete(card: Card) {
+  function handleCardDelete(card: CardI) {
     api
       .removeCard(card._id)
       .then(() => {

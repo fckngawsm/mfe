@@ -1,4 +1,5 @@
-import { lazy } from "react";
+import { User, UserContext } from "@mf/shared";
+import React, { lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 
 const UsersMF = lazy(() =>
@@ -18,6 +19,16 @@ const AuthMF = lazy(() =>
     default: () => <div className="error">Component is not available!</div>,
   }))
 );
+
+const UserProvider = ({ children }: { children: React.ReactNode }) => {
+  const [user, setUser] = useState<User | null>(null);
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
 
 const App = () => (
   <div className="container">

@@ -1,8 +1,7 @@
-import { Card as CardI } from "../../../shared/types/Card";
-import { useUser } from "../context/CurrentUserContext";
+import { Card as CardI } from "@mf/shared";
+import { useUser } from "@mf/shared/context/CurrentUserContext";
 
 export function Main({
-  cards,
   onEditProfile,
   onAddPlace,
   onEditAvatar,
