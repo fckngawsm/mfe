@@ -1,5 +1,6 @@
 import { useUser } from "@mf/shared/context/CurrentUserContext";
 import { lazy } from "react";
+import "../index.css";
 
 const UsersMF = lazy(() =>
   import("mf-users/users").catch(() => ({

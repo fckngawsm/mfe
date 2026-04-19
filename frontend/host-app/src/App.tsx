@@ -2,6 +2,7 @@ import { User, UserContext } from "@mf/shared";
 import React, { lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Main } from "./components/Main";
+import * as serviceWorker from "./serviceWorker";
 
 const AuthMF = lazy(() =>
   import("mf-auth/auth").catch(() => ({
@@ -24,6 +25,8 @@ const App = () => (
     <Main />
   </div>
 );
+
+serviceWorker.unregister();
 
 const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
 
