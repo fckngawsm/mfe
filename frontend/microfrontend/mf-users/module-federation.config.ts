@@ -1,5 +1,7 @@
 export const mfConfig = {
-  name: "mf_users",
-  exposes: {},
+  name: "mf-users",
+  exposes: {
+    "./users": "./src/App.tsx",
+  },
   shared: ["react", "react-dom"],
 };

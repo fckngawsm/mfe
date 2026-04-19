@@ -1,5 +1,7 @@
 export const mfConfig = {
   name: "mf_cards",
-  exposes: {},
+  exposes: {
+    "./mf-cards": "./src/App.tsx",
+  },
   shared: ["react", "react-dom"],
 };

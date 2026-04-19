@@ -1,11 +1,27 @@
+import { lazy } from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
+const UsersMF = lazy(() =>
+  import("mf-users/users").catch(() => ({
+    default: () => <div className="error">Component is not available!</div>,
+  }))
+);
+
+const CardsMF = lazy(() =>
+  import("mf-cards/cards").catch(() => ({
+    default: () => <div className="error">Component is not available!</div>,
+  }))
+);
+
+const AuthMF = lazy(() =>
+  import("mf-auth/auth").catch(() => ({
+    default: () => <div className="error">Component is not available!</div>,
+  }))
+);
 
 const App = () => (
   <div className="container">
-    <div>Name: mf-root</div>
-    <div>Framework: react-19</div>
+    <UsersMF />
   </div>
 );
 
