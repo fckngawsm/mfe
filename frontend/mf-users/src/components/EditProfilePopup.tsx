@@ -1,18 +1,17 @@
-import React from "react";
+import { PopupWithForm } from "@mf/shared";
+import { useUser } from "@mf/shared/context/CurrentUserContext";
+import React, { FormEvent, useEffect } from "react";
+import { getUserApiInstance } from "../utils/api";
 
 interface EditProfilePopupProps {
   isOpen: boolean;
-  onUpdateUser: ({ name, about }: { name: string; about: string }) => void;
   onClose: () => void;
 }
 
-function EditProfilePopup({
-  isOpen,
-  onUpdateUser,
-  onClose,
-}: EditProfilePopupProps) {
+function EditProfilePopup({ isOpen, onClose }: EditProfilePopupProps) {
   const [name, setName] = React.useState("");
   const [description, setDescription] = React.useState("");
+  const api = getUserApiInstance();
 
   function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
     setName(e.target.value);
@@ -22,19 +21,19 @@ function EditProfilePopup({
     setDescription(e.target.value);
   }
 
-  const currentUser = React.useContext(CurrentUserContext);
+  const { user: currentUser } = useUser();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (currentUser) {
       setName(currentUser.name);
       setDescription(currentUser.about);
     }
   }, [currentUser]);
 
-  function handleSubmit(e) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    onUpdateUser({
+    api.setUserInfo({
       name,
       about: description,
     });

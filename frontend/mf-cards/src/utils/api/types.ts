@@ -1,4 +1,4 @@
-import { Card } from "../../types/Card";
+import { Card } from "@mf/shared";
 
 export interface ICardsApi {
   getCardList(): Promise<Card[]>;

@@ -1,18 +1,7 @@
 import { User, UserContext } from "@mf/shared";
 import React, { lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
-
-const UsersMF = lazy(() =>
-  import("mf-users/users").catch(() => ({
-    default: () => <div className="error">Component is not available!</div>,
-  }))
-);
-
-const CardsMF = lazy(() =>
-  import("mf-cards/cards").catch(() => ({
-    default: () => <div className="error">Component is not available!</div>,
-  }))
-);
+import { Main } from "./components/Main";
 
 const AuthMF = lazy(() =>
   import("mf-auth/auth").catch(() => ({
@@ -32,7 +21,7 @@ const UserProvider = ({ children }: { children: React.ReactNode }) => {
 
 const App = () => (
   <div className="container">
-    <AuthMF />
+    <Main />
   </div>
 );
 

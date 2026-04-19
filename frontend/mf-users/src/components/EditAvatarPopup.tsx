@@ -1,20 +1,24 @@
-import { useRef } from "react";
+import { PopupWithForm } from "@mf/shared";
+import { FormEvent, useRef } from "react";
+import { getUserApiInstance } from "../utils/api";
 
 interface EditAvatarPopup {
   isOpen: boolean;
-  onUpdateAvatar: ({ avatar }: { avatar: string }) => void;
   onClose: () => void;
 }
 
-function EditAvatarPopup({ isOpen, onUpdateAvatar, onClose }: EditAvatarPopup) {
-  const inputRef = useRef(null);
+function EditAvatarPopup({ isOpen, onClose }: EditAvatarPopup) {
+  const api = getUserApiInstance();
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  function handleSubmit(e) {
+  const onUpdateAvatar = (avatar: string) => {
+    api.setUserAvatar(avatar);
+  };
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    onUpdateAvatar({
-      avatar: inputRef.current.value,
-    });
+    if (!inputRef.current) return;
+    onUpdateAvatar(inputRef.current.value);
   }
 
   return (
@@ -35,7 +39,7 @@ function EditAvatarPopup({ isOpen, onUpdateAvatar, onClose }: EditAvatarPopup) {
           required
           ref={inputRef}
         />
-        <span className="popup__error" id="owner-avatar-error"></span>
+        <span className="popup__error" id="owner-avatar-error" />
       </label>
     </PopupWithForm>
   );

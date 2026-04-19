@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { FormEventHandler, ReactNode } from "react";
 
 interface PopupWithFormProps {
   title: string;
   name: string;
   isOpen: boolean;
   buttonText?: string;
-  onSubmit: () => void;
+  onSubmit: FormEventHandler<HTMLFormElement>;
   onClose: () => void;
   children: ReactNode;
 }

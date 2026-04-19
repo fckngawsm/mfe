@@ -1,4 +1,4 @@
-import { Card } from "../../types/Card";
+import { Card } from "@mf/shared";
 import { ICardsApi } from "./types";
 
 class CardsApi implements ICardsApi {
@@ -34,22 +34,6 @@ class CardsApi implements ICardsApi {
     return await (res.ok
       ? res.json()
       : Promise.reject(`Ошибка: ${res.status}`));
-  }
-
-  public addCard({ name, link }: { name: string; link: string }) {
-    return fetch(`${this.address}/${this.groupId}/cards`, {
-      method: "POST",
-      headers: {
-        authorization: this.token,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        link,
-      }),
-    }).then((res) =>
-      res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)
-    );
   }
 
   public removeCard(cardID: number) {
