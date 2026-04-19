@@ -1,5 +1,5 @@
 export type Card = {
-  id: number;
+  _id: number;
   name: string;
   link: string;
   owner: any;

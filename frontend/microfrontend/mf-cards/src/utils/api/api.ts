@@ -4,18 +4,18 @@ import { ICardsApi } from "./types";
 class CardsApi implements ICardsApi {
   private static instance: CardsApi;
 
-  groupId: number;
+  groupId: string;
   address: string;
   token: string;
 
-  private constructor(groupId: number, address: string, token: string) {
+  private constructor(groupId: string, address: string, token: string) {
     this.groupId = groupId;
     this.address = address;
     this.token = token;
   }
 
   public static getInstance(
-    groupId: number,
+    groupId: string,
     address: string,
     token: string
   ): CardsApi {
@@ -76,8 +76,9 @@ class CardsApi implements ICardsApi {
   }
 }
 
-export const getCardsApiInstance = (
-  groupId: number,
-  address: string,
-  token: string
-) => CardsApi.getInstance(groupId, address, token);
+export const getCardsApiInstance = () =>
+  CardsApi.getInstance(
+    `cohort0`,
+    "https://nomoreparties.co",
+    `80a75492-21c5-4330-a02f-308029e94b63`
+  );

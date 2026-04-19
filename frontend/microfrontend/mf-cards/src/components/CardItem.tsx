@@ -1,7 +1,19 @@
 import React from "react";
-import { CurrentUserContext } from "../../../../src/contexts/CurrentUserContext";
+import type { Card } from "../types/Card";
 
-function Card({ card, onCardClick, onCardLike, onCardDelete }) {
+interface CardProps {
+  card: Card;
+  onCardClick: (card: Card) => void;
+  onCardLike: (card: Card) => void;
+  onCardDelete: (card: Card) => void;
+}
+
+export function CardItem({
+  card,
+  onCardClick,
+  onCardLike,
+  onCardDelete,
+}: CardProps) {
   const cardStyle = { backgroundImage: `url(${card.link})` };
 
   function handleClick() {
@@ -54,5 +66,3 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
     </li>
   );
 }
-
-export default Card;

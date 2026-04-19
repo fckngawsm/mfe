@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../microfrontend/mf-cards/src/components/Card";
+import Card from "../../microfrontend/mf-cards/src/components/CardItem";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function Main({
