@@ -2,6 +2,7 @@ import { useIsOpen, useUser } from "@mf/shared";
 import { AddPlacePopup } from "./AddPlacePupup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import EditProfilePopup from "./EditProfilePopup";
+import { Header } from "./Header";
 
 export const UserInformation = () => {
   const { user: currentUser } = useUser();
@@ -27,19 +28,20 @@ export const UserInformation = () => {
 
   return (
     <>
+      <Header />
       <section className="profile page__section">
         <div
           className="profile__image"
           onClick={onOpenAvatarModal}
           style={imageStyle}
-        ></div>
+        />
         <div className="profile__info">
           <h1 className="profile__title">{currentUser?.name}</h1>
           <button
             className="profile__edit-button"
             type="button"
             onClick={onOpenEditModal}
-          ></button>
+          />
           <p className="profile__description">{currentUser?.about}</p>
         </div>
         <button

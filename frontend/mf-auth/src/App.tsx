@@ -5,10 +5,12 @@ import "./index.css";
 
 export default function AuthApp() {
   return (
-    <Routes>
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<Register />} />
-      <Route index element={<Navigate to="login" replace />} />
-    </Routes>
+    <div className="page__content">
+      <Routes>
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route index element={<Navigate to="login" replace />} />
+      </Routes>
+    </div>
   );
 }

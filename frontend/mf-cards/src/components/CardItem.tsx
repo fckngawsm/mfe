@@ -52,7 +52,7 @@ export function CardItem({ card, onCardLike, onCardDelete }: CardProps) {
               type="button"
               className={cardLikeButtonClassName}
               onClick={handleLikeClick}
-            ></button>
+            />
             <p className="card__like-count">{card.likes.length}</p>
           </div>
         </div>

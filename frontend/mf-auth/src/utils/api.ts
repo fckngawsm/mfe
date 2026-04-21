@@ -31,7 +31,7 @@ class AuthApi implements IAuthApi {
     })
       .then(this.getResponse)
       .then((data) => {
-        localStorage.setItem("jwt", data.token);
+        localStorage.setItem("token", data.token);
         return data;
       });
   }

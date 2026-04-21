@@ -9,8 +9,8 @@ export const mfConfig = {
   shared: {
     react: { singleton: true, requiredVersion: false as false },
     "react-dom": { singleton: true, requiredVersion: false as false },
-    "react-router": { singleton: true },
-    "react-router-dom": { singleton: true },
+    "react-router": { singleton: true, requiredVersion: false as false },
+    "react-router-dom": { singleton: true, requiredVersion: false as false },
     "@mf/shared": { singleton: true, requiredVersion: false as false },
   },
 };

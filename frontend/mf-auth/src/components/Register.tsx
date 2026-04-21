@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuthApiInstance } from "../utils/api";
 
 export function Register() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const navigate = useNavigate();
   const api = getAuthApiInstance();
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    api.register(email, password);
+    await api.register(email, password);
+    navigate("/auth/login");
   }
   return (
     <div className="auth-form">
@@ -44,7 +46,7 @@ export function Register() {
           </button>
           <p className="auth-form__text">
             Уже зарегистрированы?{" "}
-            <Link className="auth-form__link" to="/signin">
+            <Link className="auth-form__link" to="/auth/login">
               Войти
             </Link>
           </p>

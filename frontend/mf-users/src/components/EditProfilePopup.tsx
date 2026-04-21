@@ -38,6 +38,7 @@ function EditProfilePopup({ isOpen, onClose }: EditProfilePopupProps) {
     });
   }
 
+  if (!isOpen) return null;
   return (
     <PopupWithForm
       isOpen={isOpen}

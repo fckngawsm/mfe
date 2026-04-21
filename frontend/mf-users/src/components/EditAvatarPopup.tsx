@@ -8,6 +8,7 @@ interface EditAvatarPopup {
 }
 
 function EditAvatarPopup({ isOpen, onClose }: EditAvatarPopup) {
+  console.log(isOpen, "isOpen");
   const api = getUserApiInstance();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -20,6 +21,8 @@ function EditAvatarPopup({ isOpen, onClose }: EditAvatarPopup) {
     if (!inputRef.current) return;
     onUpdateAvatar(inputRef.current.value);
   }
+
+  if (!isOpen) return null;
 
   return (
     <PopupWithForm

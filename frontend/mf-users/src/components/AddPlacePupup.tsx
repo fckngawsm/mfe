@@ -28,6 +28,8 @@ export function AddPlacePopup({ isOpen, onClose }: AddPlacePopupProps) {
     });
   }
 
+  if (!isOpen) return null;
+
   return (
     <PopupWithForm
       isOpen={isOpen}

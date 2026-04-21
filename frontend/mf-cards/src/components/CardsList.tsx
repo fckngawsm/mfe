@@ -1,11 +1,11 @@
-import { Card as CardI } from "@mf/shared";
-import { useUser } from "@mf/shared";
+import { Card as CardI, useUser } from "@mf/shared";
 import { useEffect, useState } from "react";
 import { getCardsApiInstance } from "../utils/api/api";
 import { CardItem } from "./CardItem";
 
 export const CardsList = () => {
   const [cards, setCards] = useState<CardI[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const api = getCardsApiInstance();
   const { user: currentUser } = useUser();
 
@@ -31,8 +31,21 @@ export const CardsList = () => {
   }
 
   useEffect(() => {
-    api.getCardList().then((data) => setCards(data));
+    setIsLoading(true);
+    api
+      .getCardList()
+      .then((data) => setCards(data))
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
   }, [api]);
+
+  if (isLoading) {
+    return (
+      <section className="places page__section">
+        <p>Загрузка карточек...</p>
+      </section>
+    );
+  }
 
   return (
     <section className="places page__section">

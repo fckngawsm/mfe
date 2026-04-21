@@ -19,6 +19,7 @@ export function PopupWithForm({
   onClose,
   children,
 }: PopupWithFormProps) {
+  console.log(isOpen, name);
   return (
     <div
       className={`popup popup_type_${name} ${isOpen ? "popup_is-opened" : ""}`}
