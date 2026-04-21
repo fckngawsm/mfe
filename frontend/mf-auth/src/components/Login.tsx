@@ -1,21 +1,16 @@
 import React from "react";
+import { getAuthApiInstance } from "../utils/api";
 
-interface LoginProps {
-  onLogin: (userData: { email: string; password: string }) => void;
-}
-
-export function Login({ onLogin }: LoginProps) {
+export function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const api = getAuthApiInstance();
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const userData = {
-      email,
-      password,
-    };
-    onLogin(userData);
+    api.login(email, password);
   }
+
   return (
     <div className="auth-form">
       <form className="auth-form__form" onSubmit={handleSubmit}>

@@ -59,5 +59,5 @@ class AuthApi implements IAuthApi {
   }
 }
 
-export const getUserApiInstance = () =>
+export const getAuthApiInstance = () =>
   AuthApi.getInstance("https://auth.nomoreparties.co");

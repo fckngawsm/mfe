@@ -1,21 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getAuthApiInstance } from "../utils/api";
 
-interface RegisterProps {
-  onRegister: (userData: { email: string; password: string }) => void;
-}
-
-export function Register({ onRegister }: RegisterProps) {
+export function Register() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-
+  const api = getAuthApiInstance();
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const userData = {
-      email,
-      password,
-    };
-    onRegister(userData);
+    api.register(email, password);
   }
   return (
     <div className="auth-form">

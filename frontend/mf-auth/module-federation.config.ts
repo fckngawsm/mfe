@@ -1,5 +1,5 @@
 export const mfConfig = {
-  name: "mf_auth",
+  name: "mf-auth",
   exposes: {
     "./mf-auth": "./src/App.tsx",
   },

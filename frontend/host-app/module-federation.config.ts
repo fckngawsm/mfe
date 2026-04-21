@@ -7,6 +7,7 @@ export const mfConfig = {
   shared: {
     react: { singleton: true, requiredVersion: false },
     "react-dom": { singleton: true, requiredVersion: false },
+    "react-router": { singleton: true },
   },
   plugins: {
     remotes: {
