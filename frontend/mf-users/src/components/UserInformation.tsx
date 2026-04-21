@@ -2,7 +2,6 @@ import { useIsOpen, useUser } from "@mf/shared";
 import { AddPlacePopup } from "./AddPlacePupup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import EditProfilePopup from "./EditProfilePopup";
-import { Header } from "./Header";
 
 export const UserInformation = () => {
   const { user: currentUser } = useUser();
@@ -28,7 +27,6 @@ export const UserInformation = () => {
 
   return (
     <>
-      <Header />
       <section className="profile page__section">
         <div
           className="profile__image"
