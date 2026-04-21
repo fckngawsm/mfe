@@ -1,6 +1,7 @@
 {
   "name": "microfrontend",
   "workspaces": [
+    "host-app",
     "mf-*",
     "shared"
   ],

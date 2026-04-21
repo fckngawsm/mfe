@@ -1,10 +1,9 @@
-import ReactDOM from "react-dom/client";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import "./index.css";
 
-export default function App() {
+export default function AuthApp() {
   return (
     <Routes>
       <Route path="login" element={<Login />} />
@@ -13,7 +12,3 @@ export default function App() {
     </Routes>
   );
 }
-
-const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
-
-root.render(<App />);

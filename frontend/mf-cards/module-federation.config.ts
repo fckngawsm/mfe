@@ -1,10 +1,12 @@
 export const mfConfig = {
   name: "mf_cards",
   exposes: {
-    "./mf-cards": "./src/App.tsx",
+    "./cards": "./src/App.tsx",
   },
-  remotes: {
-    host: "host@http://localhost:8080/index.ts",
+  dts: false,
+  shared: {
+    react: { singleton: true },
+    "react-dom": { singleton: true },
+    "@mf/shared": { singleton: true, requiredVersion: false as false },
   },
-  shared: ["react", "react-dom"],
 };

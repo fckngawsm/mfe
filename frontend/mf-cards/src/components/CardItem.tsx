@@ -1,4 +1,4 @@
-import { useUser } from "host/CurrentUserContext";
+import { Card, useUser } from "@mf/shared";
 import { useState } from "react";
 import { CardPopup } from "./CardPopup";
 
@@ -22,12 +22,12 @@ export function CardItem({ card, onCardLike, onCardDelete }: CardProps) {
 
   const { user: currentUser } = useUser();
 
-  const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  const isLiked = card.likes.some((i) => i._id === currentUser?._id);
   const cardLikeButtonClassName = `card__like-button ${
     isLiked && "card__like-button_is-active"
   }`;
 
-  const isOwn = card.owner._id === currentUser._id;
+  const isOwn = card.owner._id === currentUser?._id;
   const cardDeleteButtonClassName = `card__delete-button ${
     isOwn ? "card__delete-button_visible" : "card__delete-button_hidden"
   }`;

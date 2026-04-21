@@ -1,5 +1,4 @@
-import { useUser } from "@mf/shared/context/CurrentUserContext";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import "../index.css";
 
 const UsersMF = lazy(() =>
@@ -15,14 +14,14 @@ const CardsMF = lazy(() =>
 );
 
 export function Main() {
-  const { user: currentUser } = useUser();
-
-  const imageStyle = { backgroundImage: `url(${currentUser?.avatar})` };
-
   return (
     <main className="content">
-      <UsersMF />
-      <CardsMF />
+      <Suspense fallback={<div>Loading users...</div>}>
+        <UsersMF />
+      </Suspense>
+      <Suspense fallback={<div>Loading cards...</div>}>
+        <CardsMF />
+      </Suspense>
     </main>
   );
 }

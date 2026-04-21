@@ -1,19 +1,29 @@
-import { createContext, useContext } from "react";
-import { User } from "../types/User";
+import { createContext, useContext, useState } from "react";
+import type { User } from "../types/User";
 
-interface UserContextType {
+type UserContextValue = {
   user: User | null;
-  setUser: (user: User | null) => void;
-}
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+};
 
-export const UserContext = createContext<UserContextType | undefined>(
-  undefined
-);
+export const UserContext = createContext<UserContextValue | null>(null);
+
+export const UserProvider = ({ children }: { children: React.ReactNode }) => {
+  const [user, setUser] = useState<User | null>(null);
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
 
 export const useUser = () => {
   const context = useContext(UserContext);
+
   if (!context) {
-    throw new Error("useUser must be used within a UserProvider");
+    throw new Error("useUser must be used within UserProvider");
   }
+
   return context;
 };

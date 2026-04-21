@@ -1,19 +1,16 @@
 export const mfConfig = {
   name: "host",
-  exposes: {
-    "./AuthContext": "./src/shared/contexts/CurrentUserContext",
-    "./InfoTooltip": "./src/shared/components/InfoTooltip",
+  remotes: {
+    "mf-cards": "mf_cards@http://localhost:8081/mf-manifest.json",
+    "mf-users": "mf_users@http://localhost:8082/mf-manifest.json",
+    "mf-auth": "mf_auth@http://localhost:8083/mf-manifest.json",
   },
+  dts: false,
   shared: {
-    react: { singleton: true, requiredVersion: false },
-    "react-dom": { singleton: true, requiredVersion: false },
+    react: { singleton: true, requiredVersion: false as false },
+    "react-dom": { singleton: true, requiredVersion: false as false },
     "react-router": { singleton: true },
-  },
-  plugins: {
-    remotes: {
-      "mf-cards": "mf-cards@http://localhost:8081/App.js",
-      "mf-users": "mf-users@http://localhost:8082/App.js",
-      "mf-auth": "mf-auth@http://localhost:8083/App.js",
-    },
+    "react-router-dom": { singleton: true },
+    "@mf/shared": { singleton: true, requiredVersion: false as false },
   },
 };

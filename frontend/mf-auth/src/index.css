@@ -1,4 +1,2 @@
-/* @import url('./vendor/normalize.css'); общий? */
-/* @import url('./vendor/fonts.css'); общий? */
 @import url('./blocks/auth-form/auth-form.css');
 @import url('./blocks/login/login.css');

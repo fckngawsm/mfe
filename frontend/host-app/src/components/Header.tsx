@@ -1,5 +1,5 @@
 import { Link, Route } from "react-router-dom";
-import logoPath from "../images/logo.svg";
+import logoPath from "../assets/logo.svg";
 
 interface HeaderProps {
   onSignOut: () => void;
@@ -17,7 +17,7 @@ function Header({ onSignOut, email }: HeaderProps) {
         alt="Логотип проекта Mesto"
         className="logo header__logo"
       />
-      <Route exact path="/">
+      <Route path="/">
         <div className="header__wrapper">
           <p className="header__user">{email}</p>
           <button className="header__logout" onClick={handleSignOut}>

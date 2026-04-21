@@ -1,14 +1,6 @@
-import ReactDOM from "react-dom/client";
+import "./blocks/index.css";
+import { CardsList } from "./components/CardsList";
 
-import "./index.css";
+const App = () => <CardsList />;
 
-const App = () => (
-  <div className="container">
-    <div>Name: mf-cards</div>
-    <div>Framework: react-19</div>
-  </div>
-);
-
-const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
-
-root.render(<App />);
+export default App;

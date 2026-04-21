@@ -1,7 +1,13 @@
 export const mfConfig = {
-  name: "mf-auth",
+  name: "mf_auth",
   exposes: {
-    "./mf-auth": "./src/App.tsx",
+    "./auth": "./src/App.tsx",
   },
-  shared: ["react", "react-dom"],
+  dts: false,
+  shared: {
+    react: { singleton: true },
+    "react-dom": { singleton: true },
+    "react-router-dom": { singleton: true },
+    "@mf/shared": { singleton: true, requiredVersion: false as false },
+  },
 };

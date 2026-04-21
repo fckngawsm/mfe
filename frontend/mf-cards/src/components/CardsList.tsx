@@ -1,5 +1,5 @@
 import { Card as CardI } from "@mf/shared";
-import { useUser } from "@mf/shared/context/CurrentUserContext";
+import { useUser } from "@mf/shared";
 import { useEffect, useState } from "react";
 import { getCardsApiInstance } from "../utils/api/api";
 import { CardItem } from "./CardItem";

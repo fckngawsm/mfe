@@ -1,5 +1,4 @@
-import { PopupWithForm } from "@mf/shared";
-import { useUser } from "@mf/shared/context/CurrentUserContext";
+import { PopupWithForm, useUser } from "@mf/shared";
 import React, { FormEvent, useEffect } from "react";
 import { getUserApiInstance } from "../utils/api";
 

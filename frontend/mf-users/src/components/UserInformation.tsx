@@ -1,5 +1,4 @@
-import { useIsOpen } from "@mf/shared";
-import { useUser } from "../../../shared/context/CurrentUserContext";
+import { useIsOpen, useUser } from "@mf/shared";
 import { AddPlacePopup } from "./AddPlacePupup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import EditProfilePopup from "./EditProfilePopup";

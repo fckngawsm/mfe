@@ -1,9 +1,8 @@
-import * as path from "node:path";
+import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 import { defineConfig } from "@rspack/cli";
 import { rspack } from "@rspack/core";
 import * as RefreshPlugin from "@rspack/plugin-react-refresh";
-import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
-
+import * as path from "node:path";
 
 import { mfConfig } from "./module-federation.config";
 
@@ -25,6 +24,9 @@ export default defineConfig({
     port: 8083,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   output: {
     // You need to set a unique value that is not equal to other applications
