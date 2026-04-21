@@ -1,7 +1,8 @@
-import { lazy } from "react";
-import { createBrowserRouter } from "react-router";
+import { lazy, Suspense } from "react";
+import { createBrowserRouter } from "react-router-dom";
 import { Main } from "../components/Main";
 import { GuestOnly } from "./GuestOnly";
+import { RequireAuth } from "./RequireAuth";
 
 const AuthMF = lazy(() =>
   import("mf-auth/auth").catch(() => ({
@@ -11,17 +12,24 @@ const AuthMF = lazy(() =>
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    Component: Main,
+    element: <RequireAuth />,
     children: [
       {
-        element: <GuestOnly />,
-        children: [
-          {
-            path: "auth/*",
-            Component: AuthMF,
-          },
-        ],
+        path: "/",
+        Component: Main,
+      },
+    ],
+  },
+  {
+    element: <GuestOnly />,
+    children: [
+      {
+        path: "/auth/*",
+        element: (
+          <Suspense fallback={<div>Loading auth...</div>}>
+            <AuthMF />
+          </Suspense>
+        ),
       },
     ],
   },

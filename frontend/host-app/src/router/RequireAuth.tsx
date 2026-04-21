@@ -1,10 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-export const GuestOnly = () => {
+export const RequireAuth = () => {
   const token = localStorage.getItem("token");
-  console.log(token, "token");
-  if (token) {
-    return <Navigate to="/" replace />;
+
+  if (!token) {
+    return <Navigate to="/auth/login" replace />;
   }
 
   return <Outlet />;

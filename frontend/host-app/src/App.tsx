@@ -1,17 +1,14 @@
 import { UserProvider } from "@mf/shared";
-import ReactDOM from "react-dom/client";
-import { Main } from "./components/Main";
-import "./index.css";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/router";
 import * as serviceWorker from "./serviceWorker";
 
 const App = () => (
   <UserProvider>
-    <Main />
+    <RouterProvider router={router} />
   </UserProvider>
 );
 
 serviceWorker.unregister();
 
-const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
-
-root.render(<App />);
+export default App;
